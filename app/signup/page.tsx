@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import Link from "next/link";
 
 const SignUpPage = () => {
@@ -12,6 +12,15 @@ const SignUpPage = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // user information getting ......
+    const formData= new FormData(e.target)
+    const user=Object.fromEntries(formData.entries())
+    console.log(user)
+
+
+
+
     setError("");
 
     if (password !== confirmPassword) {
