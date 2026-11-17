@@ -15,7 +15,7 @@ const SignUpPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // user information getting ......
+    // user information getting ......`
     const formData= new FormData(e.target)
     const user=Object.fromEntries(formData.entries()) as {name:string,email:string,password:string}
     // console.log(user)
