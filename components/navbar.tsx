@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Userinfo from "./userinfo";
 
 const formatBangla = (d: Date) => {
   const dayName = new Intl.DateTimeFormat("bn-BD", {
@@ -72,19 +73,7 @@ const Navbar = () => {
         </div>
 
         {/* Auth buttons */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          <Link href={"/signin"}>
-          <button className="rounded-lg border border-green-700 px-3 py-1.5 text-sm font-medium text-green-700 transition hover:bg-green-700 hover:text-white sm:px-4 sm:text-base">
-            সাইন ইন
-          </button>
-          </Link>
-        <Link href={"/signup"}>
-         <button className="rounded-lg bg-green-700 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-green-800 sm:px-4 sm:text-base">
-            সাইন আপ
-          </button>
-        </Link>
-         
-        </div>
+        <Userinfo></Userinfo>
       </nav>
     </header>
   );
