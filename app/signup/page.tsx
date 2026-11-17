@@ -2,6 +2,8 @@
 
 import React, { use, useState } from "react";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client"; //import the auth client
+import { redirect } from "next/navigation";
 
 const SignUpPage = () => {
   const [name, setName] = useState("");
@@ -10,13 +12,29 @@ const SignUpPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // user information getting ......
     const formData= new FormData(e.target)
-    const user=Object.fromEntries(formData.entries())
-    console.log(user)
+    const user=Object.fromEntries(formData.entries()) as {name:string,email:string,password:string}
+    // console.log(user)
+    const { data, error } = await authClient.signUp.email({
+        email, // user email address
+        password, // user password -> min 8 characters by default
+        name, // user display name
+        // image, // User image URL (optional)
+        callbackURL: "/dashboard" // A URL to redirect to after the user verifies their email (optional)
+    })
+    if(data){
+      console.log(data)
+      // here will be a toast for successing the signup session 
+      redirect("/")
+    }
+    if(error){
+      // here will be the error session 
+      console.log(error)
+    }
 
 
 
