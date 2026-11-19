@@ -3,6 +3,7 @@ import { Anek_Bangla } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Toaster } from "react-hot-toast";
 
 const AnekBangla = Anek_Bangla({
   // variable: "--font-geist-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar></Navbar>
         {children}
         <Footer></Footer>
+             <Toaster />
         </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { authClient } from "@/lib/auth-client"; //import the auth client
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
@@ -26,6 +27,9 @@ const SignInPage = () => {
         callbackURL: "/" // A URL to redirect to after the user verifies their email (optional)
     })
     if(data){
+      toast.success("সাইন ইন সফল হয়েছে",{
+        duration:5000,
+      })
       console.log(data)
       // here will be a toast for successing the signup session 
       // redirect("/")
@@ -33,6 +37,7 @@ const SignInPage = () => {
     if(error){
       // here will be the error session 
       // toast will be here 
+      toast.error("সাইন ইন ভুল হয়েছে")
       console.log(error)
     }
 

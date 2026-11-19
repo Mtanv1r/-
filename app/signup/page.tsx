@@ -4,6 +4,7 @@ import React, { use, useState } from "react";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client"; //import the auth client
 import { redirect } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 const SignUpPage = () => {
   const [name, setName] = useState("");
@@ -24,15 +25,19 @@ const SignUpPage = () => {
         password, // user password -> min 8 characters by default
         name, // user display name
         // image, // User image URL (optional)
-        callbackURL: "/dashboard" // A URL to redirect to after the user verifies their email (optional)
+        callbackURL: "/" // A URL to redirect to after the user verifies their email (optional)
     })
     if(data){
+       toast.success("সাইন আপ সফল হয়েছে",{
+        duration:5000,
+      })
       console.log(data)
       // here will be a toast for successing the signup session 
       redirect("/")
     }
     if(error){
       // here will be the error session 
+       toast.error("সাইন আপ ভুল হয়েছে")
       console.log(error)
     }
 
