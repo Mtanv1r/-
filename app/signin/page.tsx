@@ -32,6 +32,7 @@ const SignInPage = () => {
     }
     if(error){
       // here will be the error session 
+      // toast will be here 
       console.log(error)
     }
 
