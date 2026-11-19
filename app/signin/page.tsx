@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { authClient } from "@/lib/auth-client"; //import the auth client
 import Link from "next/link";
 
 const SignInPage = () => {
@@ -8,9 +9,34 @@ const SignInPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
+
+    // copy from sign-up page 
+     // user information getting ......`
+    const formData= new FormData(e.target)
+    const user=Object.fromEntries(formData.entries()) as {name:string,email:string,password:string}
+    // console.log(user)
+    const { data, error } = await authClient.signIn.email({
+        email, // user email address
+        password, // user password -> min 8 characters by default
+        // user display name
+        // image, // User image URL (optional)
+        callbackURL: "/" // A URL to redirect to after the user verifies their email (optional)
+    })
+    if(data){
+      console.log(data)
+      // here will be a toast for successing the signup session 
+      // redirect("/")
+    }
+    if(error){
+      // here will be the error session 
+      console.log(error)
+    }
+
+
+
 
     // TODO: call your sign in here, for example with better-auth:
     // const { error } = await authClient.signIn.email({ email, password });
