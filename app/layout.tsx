@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
 import AllProduct from "@/components/allProduct";
+import Marquee from "@/components/marquee";
 
 const AnekBangla = Anek_Bangla({
   // variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
         <AllProduct></AllProduct>
+        <Marquee></Marquee>
         {children}
         <Footer></Footer>
              <Toaster />
