@@ -14,7 +14,7 @@ const AllProduct = async () => {
   const data: Category[] = await res.json();
 
   return (
-    <section className="w-full bg-red-200 shadow-sm">
+    <section className="w-full shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* scrolls sideways on small screens, centered on large screens */}
         <ul className="flex items-center gap-2 overflow-x-auto py-2 sm:gap-3 lg:justify-center [&::-webkit-scrollbar]:hidden">
