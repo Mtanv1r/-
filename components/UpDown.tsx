@@ -21,6 +21,7 @@ const UpDown = async () => {
 
   return (
     <div>
+
       <section className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
   {/* heading */}
   <div className="mb-8 flex flex-col items-center gap-2 text-center">
@@ -39,7 +40,6 @@ const UpDown = async () => {
     ))}
   </div>
 </section>
-
 {/* price down section */}
       <section className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
   {/* heading */}
@@ -59,6 +59,8 @@ const UpDown = async () => {
     ))}
   </div>
 </section>
+
+
     </div>
   );
 };
