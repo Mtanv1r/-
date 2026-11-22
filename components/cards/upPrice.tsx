@@ -46,7 +46,7 @@ const UpPrice = ({ elm }: { elm: Product }) => {
         </div>
 
         <span className="rounded-full bg-red-100 px-2.5 py-1 text-xs font-semibold text-red-700 sm:text-sm">
-          🔺 {toBn(Math.abs(elm.change.pct), 1)}%
+         📈 {toBn(Math.abs(elm.change.pct), 1)}%
         </span>
       </div>
     </div>
