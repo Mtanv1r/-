@@ -30,6 +30,7 @@ const Page = async ({ searchParams }: Props) => {
       </section>
       <h1>{data[0].categoryNameBn
 }</h1>
+<h1>মোট {data.length}টি পণ্য এর আজকের দেমার পরিবর্তন</h1>
     </div>
 
     {/* single product will be here  */}
@@ -39,11 +40,18 @@ const Page = async ({ searchParams }: Props) => {
       return(
         <section key={idx}>
           <section>
-            {elm.image
-}
-            <h1>{elm.nameBn
-
-}</h1>
+            {/* card will be here */}
+            <div>
+              {elm.image}
+              {elm.nameBn}
+              <h1>  আজকের দাম={elm.today}</h1>
+             
+              <h1>প্রতি{elm.unit}</h1>
+            </div>
+            {/* conditional section */}
+            <div>
+              
+            </div>
           </section>
 
         </section>
