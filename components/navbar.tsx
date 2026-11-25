@@ -40,7 +40,8 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 w-full bg-gray-300 shadow-md">
       <nav className="container mx-auto flex flex-wrap items-center justify-between gap-y-2 px-4 py-2 sm:px-6 lg:px-8">
         {/* Logo + title */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <Link href={"/"}>
+         <div className="flex items-center gap-2 sm:gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-green-700 sm:h-12 sm:w-12">
             <Image
               src="/logo-icon.png"
@@ -54,6 +55,8 @@ const Navbar = () => {
             বাজার দর
           </h1>
         </div>
+        </Link>
+        
 
         {/* Bangla date section: full row on mobile, centered on larger screens */}
         <div
