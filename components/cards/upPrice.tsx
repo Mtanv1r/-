@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type Product = {
@@ -6,6 +7,7 @@ type Product = {
   today: number;
   unit: string;
   change: { dir: string; pct: number };
+  id:number;
 };
 
 const unitBn: Record<string, string> = {
@@ -19,8 +21,14 @@ const toBn = (num: number, digits = 0) =>
   new Intl.NumberFormat("bn-BD", { maximumFractionDigits: digits }).format(num);
 
 const UpPrice = ({ elm }: { elm: Product }) => {
+
+
+  console.log(elm)
   return (
-    <div className="flex flex-col gap-3 rounded-2xl border border-green-700/20 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+
+    <Link href={`/detail/${elm.id}`}>
+
+  <div className="flex flex-col gap-3 rounded-2xl border border-green-700/20 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
       {/* top: emoji + name + unit */}
       <div className="flex items-center gap-3">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-700 text-2xl">
@@ -50,6 +58,9 @@ const UpPrice = ({ elm }: { elm: Product }) => {
         </span>
       </div>
     </div>
+
+    </Link>
+    
   );
 };
 
