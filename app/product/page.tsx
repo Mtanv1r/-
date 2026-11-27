@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 // http://localhost:3000/product?category=mosla
@@ -47,6 +48,7 @@ async function getProducts(category?: string): Promise<Product[]> {
 const isUrl = (s?: string) => !!s && /^(https?:)?\/\//.test(s);
 
 const Page = async ({ searchParams }: Props) => {
+
   const { category } = await searchParams;
   const data = await getProducts(category);
 
@@ -84,7 +86,11 @@ const Page = async ({ searchParams }: Props) => {
               const isUp = elm.change?.dir === "up";
 
               return (
-                <article
+
+                // here products are mapped from data
+                // here is the card
+                <Link  href={`/detail/${elm.id}`} key={idx}>
+                    <article
                   key={elm.id ?? idx}
                   className="flex flex-col gap-3 rounded-2xl border border-gray-200 bg-white p-3 shadow-sm transition hover:shadow-md sm:p-4"
                 >
@@ -130,6 +136,7 @@ const Page = async ({ searchParams }: Props) => {
                     )}
                   </div>
                 </article>
+                </Link>
               );
             })}
           </section>
